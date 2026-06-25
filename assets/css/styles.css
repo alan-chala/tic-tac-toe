@@ -18,6 +18,9 @@
   --primary-text-color: #fff;
 
   --accent-color: #389afd;
+  --hover-accent-color: #1c6ed0;
+
+  --transition: all ease .3s;
 }
 
 * {
@@ -61,6 +64,8 @@ body, html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  display: none;
 }
 
 .start-game-container h1 {
@@ -73,13 +78,91 @@ body, html {
   margin-bottom: 1.5rem;
 }
 
-.start-game-container button {
-  width: 12.5rem;
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.game h2 {
+  font-family: var(--secondary-font);
+  font-size: 3rem;
+}
+
+.show-turn {
+  background-color: var(--secondary-background-color);
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  padding: .5rem 1.2rem;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.show-turn::after {
+  content: '';
+  position: absolute;
+  background-color: var(--accent-color);
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cell {
+  width: 6.25rem;
+  height: 6.25rem;
+  border: 1px solid var(--primary-text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--secondary-font);
+  font-size: 3rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.cell:hover {
+  background-color: var(--secondary-background-color);
+}
+
+.game-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#startGame, #restartGame, #quitGame {
+  width: 8rem;
   padding: .5rem;
   cursor: pointer;
   border: none;
   border-radius: .5rem;
   background-color: var(--accent-color);
   color: var(--primary-text-color);
+  transition: var(--transition);
 }
 
+#startGame:hover, #restartGame:hover {
+  background-color: var(--hover-accent-color);
+}
+
+#quitGame {
+  background: none;
+  border: 2px solid var(--accent-color);
+  transition: var(--transition);
+}
+
+#quitGame:hover {
+  background-color: var(--secondary-background-color);
+}
