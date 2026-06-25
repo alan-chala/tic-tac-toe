@@ -1,5 +1,5 @@
-const startTheGameButton = document.getElementById("startGame");
-const startTheGameContainer = document.querySelector(".start-game-container");
+const startGameButton = document.getElementById("startGame");
+const startGameContainer = document.querySelector(".start-game-container");
 const restartGameButton = document.getElementById("restartGame");
 const winnerMessage = document.querySelector(".winner-message");
 const cellElements = document.querySelectorAll(".cell");
@@ -19,9 +19,9 @@ const winnerPatterns = [
   [2, 4, 6],
 ];
 
-startTheGameButton.addEventListener("click", () => {
-  startTheGameContainer.style.display = "none";
-  startTheGameContainer.setAttribute("aria-hidden", "true");
+startGameButton.addEventListener("click", () => {
+  startGameContainer.style.display = "none";
+  startGameContainer.setAttribute("aria-hidden", "true");
 });
 
 cellElements.forEach((cell) => {
