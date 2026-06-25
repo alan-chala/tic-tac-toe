@@ -16,14 +16,18 @@
   </head>
   <body>
     <main class="main">
-      <div class="start-game-container">
+      <div class="start-game-container" aria-hidden="false">
         <h1>Tic Tac Toe Game</h1>
         <p>
           Welcome to the Tic Tac Toe game! Click the button below to start
           playing against a friend.
         </p>
-        <button id="startGame">Start Game</button>
+        <button id="startGame" aria-label="Start the game button">Start the Game</button>
       </div>
+
+      <section class="game"></section>
     </main>
+
+    <script src="./assets/js/index.js"></script>
   </body>
 </html>
