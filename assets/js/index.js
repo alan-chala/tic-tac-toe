@@ -1,8 +1,11 @@
 const startGameButton = document.getElementById("startGame");
 const startGameContainer = document.querySelector(".start-game-container");
+const quitGameButton = document.getElementById("quitGame");
 const restartGameButton = document.getElementById("restartGame");
 const winnerMessage = document.querySelector(".winner-message");
 const cellElements = document.querySelectorAll(".cell");
+
+const gameElement = document.querySelector(".game");
 
 let turn = "X";
 
@@ -22,6 +25,9 @@ const winnerPatterns = [
 startGameButton.addEventListener("click", () => {
   startGameContainer.style.display = "none";
   startGameContainer.setAttribute("aria-hidden", "true");
+
+  gameElement.setAttribute("aria-hidden", "false");
+  gameElement.style.display = "flex";
 });
 
 cellElements.forEach((cell) => {
@@ -63,4 +69,12 @@ restartGameButton.addEventListener("click", () => {
   winnerMessage.textContent = "";
   document.querySelector(".show-turn").classList.remove("right");
   isGameActive = true;
+});
+
+quitGameButton.addEventListener("click", () => {
+  gameElement.style.display = "none";
+  gameElement.setAttribute("aria-hidden", "true"); 
+
+  startGameContainer.style.display = "flex";
+  startGameContainer.setAttribute("aria-hidden", "false");
 });
