@@ -100,6 +100,8 @@ body, html {
   z-index: 1;
   cursor: pointer;
   pointer-events: none;
+  border-radius: .5rem;
+  overflow: hidden;
 }
 
 .show-turn::after {
@@ -109,8 +111,13 @@ body, html {
   width: 50%;
   height: 100%;
   top: 0;
-  left: 0;
+  transform: translateX(-20px);
   z-index: -1;
+  transition: var(--transition);
+}
+
+.show-turn.right::after {
+  transform: translateX(30px);
 }
 
 .game-board {
