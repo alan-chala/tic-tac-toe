@@ -72,6 +72,15 @@ restartGameButton.addEventListener("click", () => {
 });
 
 quitGameButton.addEventListener("click", () => {
+  cellElements.forEach((cell) => {
+    cell.textContent = "";
+    cell.setAttribute("aria-label", "");
+    cell.setAttribute("aria-pressed", "false");
+  });
+
+  turn = "X";
+  winnerMessage.textContent = "";
+
   gameElement.style.display = "none";
   gameElement.setAttribute("aria-hidden", "true"); 
 
